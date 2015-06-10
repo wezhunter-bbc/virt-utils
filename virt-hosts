@@ -67,10 +67,10 @@ def main():
                     ipaddr = leases[macaddr]['ipaddr']
                     fd.write('%s\t%s' % (
                         ipaddr,
-                        '%s-%s.%s' % (dom.name(), alias, args.domain)))
+                        '%s-%s.%s' % (hostname, alias, args.domain)))
 
                     if primary:
-                        fd.write(' %s.%s' % (dom.name(), args.domain))
+                        fd.write(' %s.%s' % (hostname, args.domain))
                     fd.write('\n')
                     primary=False
 
