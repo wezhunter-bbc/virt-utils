@@ -32,7 +32,7 @@ def main():
     args = parse_args()
 
     if args.domain is None:
-        args.domain = '%s.virt' % args.network
+        args.domain = 'bbc-ciab.net'
 
     if args.leases is None:
         args.leases = '/var/lib/libvirt/dnsmasq/%s.leases' % args.network
@@ -61,6 +61,7 @@ def main():
 
                 macaddr = iface.find('mac').get('address')
                 alias = iface.find('alias').get('name')
+                hostname = dom.name() + '-vm'
 
                 if macaddr in leases:
                     ipaddr = leases[macaddr]['ipaddr']
